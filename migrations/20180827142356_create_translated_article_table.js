@@ -5,10 +5,10 @@ exports.up = function(knex, KnexPromise) {
     table.text('language').notNull();
     table.text('summary').notNull();
     table.text('text').notNull();
-    table.boolean('published').notNull().defaultTo(false);
+    table.dateTime('published');
   });
 };
-
+ 
 exports.down = function(knex, KnexPromise) {
   return knex.schema.dropTableIfExists('translated_article');
 };
